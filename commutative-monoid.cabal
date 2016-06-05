@@ -1,0 +1,60 @@
+name: commutative-monoid
+version: 0.0.0
+cabal-version: >=1.10
+build-type: Simple
+license: MIT
+license-file: LICENSE.md
+copyright: 2015 brady.ouren <brady.ouren@gmail.com>
+maintainer: brady.ouren <brady.ouren@gmail.com>
+synopsis: TODO
+description:
+    TODO
+category: TODO
+author: brady.ouren <brady.ouren@gmail.com>
+tested-with: GHC ==7.8 GHC ==7.6
+extra-source-files:
+  README.md
+
+source-repository head
+  type:     git
+  location: https://github.com/tippenein/commutative-monoid
+
+library
+  hs-source-dirs: src
+  exposed-modules:
+      CommutativeMonoid
+  build-depends:
+      base ==4.*
+  default-language: Haskell2010
+
+executable commutative-monoid
+  hs-source-dirs: executable
+  main-is: Main.hs
+  build-depends:
+      base -any
+    , commutative-monoid -any
+  if flag(ekg)
+    build-depends:
+      ekg >= 0.4 && < 0.5
+  default-language: Haskell2010
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -fno-warn-missing-signatures
+
+test-suite tests
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:
+      base -any
+    , commutative-monoid -any
+    , hspec ==2.*
+    , HUnit -any
+    , QuickCheck -any
+  default-language:    Haskell2010
+  other-modules:
+      CommutativeMonoidSpec
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -fno-warn-missing-signatures
+
+flag ekg
+  manual: True
+  default: False
+  description: Compile with ekg monitoring.
