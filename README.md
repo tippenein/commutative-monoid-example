@@ -1,13 +1,9 @@
-commutative-monoid
+commutative-monoid-example
 -----
-[![Build Status](https://magnum.travis-ci.com/tippenein/commutative-monoid.svg?token=oEd198sTq2JwZqn9DHTF&branch=master)](https://magnum.travis-ci.com/tippenein/commutative-monoid)
 
+An example package for [a post](http://www.brdyorn.com/posts/2016-06-05-monoidal-sum.html) on aggregation monoids
 
-# install to ~/.local/bin
-stack install
-
-# Configure & build the package.
-stack build
-
-# Test package.
+```
+-- to run the test suite
 stack test
+```
